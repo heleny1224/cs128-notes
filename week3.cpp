@@ -29,3 +29,41 @@ matrix[i].size()      // number of elements in row i
 
 matrix.push_back({1, 2, 3});  // add row
 matrix[i].push_back(x);       // add to row i
+
+
+## Sets
+
+std::set<int> s;
+
+s.insert(x);       // add x
+s.erase(x);        // remove x
+s.contains(x);     // check whether x exists
+s.size();          // number of elements
+s.empty();         // whether empty
+
+// Properties:
+// - unique elements
+// - sorted
+// - no indexing
+
+
+## Maps
+
+std::map<KeyType, ValueType> m;
+
+m[key] = value;    // insert/update
+m[key];            // access value
+m.contains(key);   // check key
+m.erase(key);      // remove key/value pair
+m.size();          // number of key/value pairs
+
+// Map = key → value
+// Keys are unique
+
+
+## Iterating over a map
+
+for (const auto& pair : m) {
+    pair.first;     // key
+    pair.second;    // value
+}
