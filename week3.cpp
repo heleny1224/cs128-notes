@@ -53,9 +53,13 @@ std::map<KeyType, ValueType> m;
 
 m[key] = value;    // insert/update
 m[key];            // access value
+m.at(key); // access existing key 
 m.contains(key);   // check key
 m.erase(key);      // remove key/value pair
 m.size();          // number of key/value pairs
+m.insert(...); // insert pair 
+m.empty(); // true if empty 
+m.clear(); // remove everything
 
 // Map = key → value
 // Keys are unique
