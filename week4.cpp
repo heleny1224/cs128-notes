@@ -1,7 +1,7 @@
 STRUCTS
 ======
 
-struct → creates a custom type that groups related data
+//struct → creates a custom type that groups related data
 
 struct Score {
   unsigned int assessment_id = 0;
@@ -9,45 +9,45 @@ struct Score {
   bool is_late = false;
 };
 
-Create object:
+//Create object:
 Score entry;
 
-Access member:
+//Access member:
 entry.points
 entry.assessment_id
 
-Initialize:
+//Initialize:
 Score entry{7, 88, false};
 
-C++20 designated initialization:
+//C++20 designated initialization:
 Score entry{.assessment_id = 7, .points = 88};
 
-Nested struct:
+//Nested struct:
 sub.score.points
 
-Copy:
+//Copy:
 Score b = a;
 
-Vector of structs:
+//Vector of structs:
 std::vector<Score> log;
 
-Loop:
+//Loop:
 for (const Score& entry : log) { ... }
 
-Function parameters:
-Score x          → copy
-Score& x         → modify original
-const Score& x   → read only, no copy
+//Function parameters:
+Score x         // → copy
+Score& x        // → modify original
+const Score& x   //→ read only, no copy
 
-Return struct:
+//Return struct:
 Score Best(...)
 
-Structured bindings:
-auto [a,b,c] = entry;       → copies
-auto& [a,b,c] = entry;      → references
-const auto& [a,b,c] = entry → read-only references
+//Structured bindings:
+auto [a,b,c] = entry;      // → copies
+auto& [a,b,c] = entry;     // → references
+const auto& [a,b,c] = entry //→ read-only references
 
-Important:
+/* Important:
 - Struct groups related data together
 - Members are accessed with .
 - Default copying copies each member
@@ -55,3 +55,4 @@ Important:
 - == is NOT automatically provided for this struct
 - << is NOT automatically provided
 - Initialize primitive members before reading them
+*/
