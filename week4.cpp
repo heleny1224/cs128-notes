@@ -56,3 +56,20 @@ const auto& [a,b,c] = entry //→ read-only references
 - << is NOT automatically provided
 - Initialize primitive members before reading them
 */
+
+
+/* 
+clang++ \
+-std=c++20 \
+-I ./includes \
+-Wall \
+-Wextra \
+-Werror \
+-pedantic \
+-fsanitize=address,undefined \
+-fno-sanitize-recover=all \
+-g \
+-o ./bin/exec \
+./src/driver.cc \
+./src/solution.cc
+  */
