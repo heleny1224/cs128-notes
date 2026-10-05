@@ -17,6 +17,28 @@ for (char c : s) {
     ...
 }
 
+##Vector
+
+v.size()	Number of elements
+v.empty()	Check if empty
+v[i]	Access index i, no bounds check
+v.at(i)	Access index i, bounds check
+v.front()	First element
+v.back()	Last element
+v.push_back(x)	Add x to the end
+v.pop_back()	Remove last element
+v.begin()	Iterator to first element
+v.end()	Iterator after last element
+v.insert(pos, x)	Insert x before pos
+v.erase(pos)	Remove one element
+v.erase(first, last)	Remove [first, last)
+v.clear()	Remove all elements
+v.resize(n)	Change size
+v.reserve(n)	Increase capacity if needed
+v.capacity()	Current capacity
+
+
+
 ## Vector of Vectors
 
 std::vector<std::vector<int>> matrix;
