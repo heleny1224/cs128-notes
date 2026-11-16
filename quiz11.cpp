@@ -78,3 +78,66 @@ void SinglyLinkedList<T>::AbsorbSorted(singlyLInkedList<T>& other) {
   other.head_ = nullptr;
   other.tail_= nullptr;
 }
+
+template <typename T>
+void DoublyLinkedList<T>::RotateLeft(unsigned int k) {
+  if(head_ == nullptr || k == 0) {
+    return;
+  }
+  unsigned int size = 0;
+  Node<T>* it = head_;
+  while(it != nullptr) {
+    size++;
+    it = it->next;
+  }
+  if (k > size) {
+    k = k % size;
+  }
+  
+  unsigned int count = 0;
+  Node<T>* current = head_;
+  while(current != nullptr && count != k) {
+    current = current->next;
+    count++;
+  }
+  if(current == nullptr && count == k) {
+    return;
+  } else {
+    tail_->next = head_;
+    head_->prev = tail_;
+    tail_ = current->prev;
+    current->prev = nullptr;
+    head_ = current;
+  }
+}
+
+template <typename T>
+void SinglyLinkedList<T>::MoveGreater(
+    T threshold, SinglyLinkedList<T>& other) {
+  Node<T>* current = head_;
+  Node<T>* prev = nullptr;
+  while(current != nullptr) {
+    Node<T>* next = current->next;
+    if(current->data > threshold) {
+      if(other.head_ == nullptr){
+        other.head_ = current;
+        other.tail_ = current;
+      } else {
+      other.tail_ ->next = current;
+      other.tail_ = current;
+      }
+      if(current == head_) {
+        head_ = next;
+      } else {
+        prev->next = next;
+      }
+      if(current == tail_) {
+        tail_ = prev;
+      }
+      current->next = nullptr;
+    } else {
+      prev = current;
+    }
+    current = next;
+    }
+  }
